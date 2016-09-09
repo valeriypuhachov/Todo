@@ -57,7 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IUserRepository.cs" />
+    <Compile Include="Abstract\IUserTaskRepository.cs" />
     <Compile Include="Concrete\ApplicationDbContext.cs" />
+    <Compile Include="Concrete\AppTaskRepository.cs" />
+    <Compile Include="Concrete\AppUserRepository.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\UserTask.cs" />
