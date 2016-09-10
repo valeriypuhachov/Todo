@@ -11,12 +11,21 @@ namespace Todo.Domain.Models {
     public class UserTask {
         [Key]
         public Guid TaskId { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public string TaskDescription { get; set; }
+
         public string TaskName { get; set; }
+
         public DbGeography Location { get; set; }
+
+        [DataType(DataType.DateTime)]
         public DateTime Time { get; set; }
+
         public State TaskState { get; set; }
+
         public string UserId { get; set; }
+
         public virtual ApplicationUser User { get; set; }
     }
 }

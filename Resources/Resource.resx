@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutMyselfIsRequired" xml:space="preserve">
+    <value>Поле "О себе" является обязательным</value>
+  </data>
   <data name="Author" xml:space="preserve">
-    <value>Автор Пугачев В.А.</value>
+    <value>Автор: Пугачев В.А. и Палазюк А.В.</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
+  </data>
+  <data name="DescriptionIsRequired" xml:space="preserve">
+    <value>Поле "Описание" является обязательным</value>
+  </data>
+  <data name="EmailIsRequired" xml:space="preserve">
+    <value>Поле "Email" является обязательным</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Расположение</value>
@@ -132,23 +147,50 @@
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
+  <data name="PasswordDoNotMatch" xml:space="preserve">
+    <value>Введеные пароли не совпадают</value>
+  </data>
+  <data name="PasswordIsRequired" xml:space="preserve">
+    <value>Поле "Пароль" является обязательным</value>
+  </data>
   <data name="Patronomic" xml:space="preserve">
     <value>Отчество</value>
+  </data>
+  <data name="PhoneNumberIsNotValid" xml:space="preserve">
+    <value>Номер введен не верно</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить?</value>
+  </data>
+  <data name="RepeatPassword" xml:space="preserve">
+    <value>Повторите пароль</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
   <data name="State" xml:space="preserve">
     <value>Состояние</value>
   </data>
+  <data name="StringLengthMessage" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
   <data name="Surname" xml:space="preserve">
     <value>Фамилия</value>
+  </data>
+  <data name="SurnameIsRequired" xml:space="preserve">
+    <value>Поле "Фамилия" является обязательным</value>
   </data>
   <data name="Task" xml:space="preserve">
     <value>Задача</value>
   </data>
   <data name="TaskName" xml:space="preserve">
     <value>Название</value>
+  </data>
+  <data name="TaskNameIsRequired" xml:space="preserve">
+    <value>Поле "Название" является обязательным</value>
   </data>
   <data name="TaskTime" xml:space="preserve">
     <value>Время</value>
@@ -157,9 +199,12 @@
     <value>Номер телефона</value>
   </data>
   <data name="UserComment" xml:space="preserve">
-    <value>О себе:</value>
+    <value>О себе</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя</value>
+  </data>
+  <data name="UserNameIsRequired" xml:space="preserve">
+    <value>Поле "Имя" является обязательным</value>
   </data>
 </root>

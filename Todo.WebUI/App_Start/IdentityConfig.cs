@@ -14,6 +14,8 @@ using Todo.WebUI.Models;
 using Todo.Domain.Models;
 using Todo.Domain.Concrete;
 using Owin;
+using System.Net.Mail;
+using System.Net;
 
 namespace Todo.WebUI
 {
@@ -32,19 +34,20 @@ namespace Todo.WebUI
 
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
-        }
-    }
+        private static string _from = "adm51.14.01@gmail.com";
+        private static string _password = "12345!@#$%qwerty";
+        private static SmtpClient _client = new SmtpClient("smtp.gmail.com", 587) {
+            Credentials = new NetworkCredential(_from, _password),
+            EnableSsl = true
+        };
 
-    public class SmsService : IIdentityMessageService
-    {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your SMS service here to send a text message.
-            return Task.FromResult(0);
+            MailMessage mail = new MailMessage(_from, message.Destination, message.Subject, message.Body) {
+                IsBodyHtml = true
+            };
+
+            return _client.SendMailAsync(mail);
         }
     }
 
@@ -93,7 +96,6 @@ namespace Todo.WebUI
                 BodyFormat = "Your security code is {0}"
             });
             manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

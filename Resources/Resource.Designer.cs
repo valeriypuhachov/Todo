@@ -61,7 +61,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Автор Пугачев В.А..
+        ///   Looks up a localized string similar to Поле &quot;О себе&quot; является обязательным.
+        /// </summary>
+        public static string AboutMyselfIsRequired {
+            get {
+                return ResourceManager.GetString("AboutMyselfIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Автор: Пугачев В.А. и Палазюк А.В..
         /// </summary>
         public static string Author {
             get {
@@ -75,6 +84,42 @@ namespace Resources {
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Описание&quot; является обязательным.
+        /// </summary>
+        public static string DescriptionIsRequired {
+            get {
+                return ResourceManager.GetString("DescriptionIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Email&quot; является обязательным.
+        /// </summary>
+        public static string EmailIsRequired {
+            get {
+                return ResourceManager.GetString("EmailIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Язык.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
             }
         }
         
@@ -106,11 +151,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Введеные пароли не совпадают.
+        /// </summary>
+        public static string PasswordDoNotMatch {
+            get {
+                return ResourceManager.GetString("PasswordDoNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Пароль&quot; является обязательным.
+        /// </summary>
+        public static string PasswordIsRequired {
+            get {
+                return ResourceManager.GetString("PasswordIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отчество.
         /// </summary>
         public static string Patronomic {
             get {
                 return ResourceManager.GetString("Patronomic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер введен не верно.
+        /// </summary>
+        public static string PhoneNumberIsNotValid {
+            get {
+                return ResourceManager.GetString("PhoneNumberIsNotValid", resourceCulture);
             }
         }
         
@@ -124,6 +196,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Запомнить?.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Повторите пароль.
+        /// </summary>
+        public static string RepeatPassword {
+            get {
+                return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Русский.
+        /// </summary>
+        public static string Russian {
+            get {
+                return ResourceManager.GetString("Russian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Состояние.
         /// </summary>
         public static string State {
@@ -133,11 +232,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
+        /// </summary>
+        public static string StringLengthMessage {
+            get {
+                return ResourceManager.GetString("StringLengthMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Фамилия.
         /// </summary>
         public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Фамилия&quot; является обязательным.
+        /// </summary>
+        public static string SurnameIsRequired {
+            get {
+                return ResourceManager.GetString("SurnameIsRequired", resourceCulture);
             }
         }
         
@@ -160,6 +277,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Название&quot; является обязательным.
+        /// </summary>
+        public static string TaskNameIsRequired {
+            get {
+                return ResourceManager.GetString("TaskNameIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Время.
         /// </summary>
         public static string TaskTime {
@@ -178,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to О себе:.
+        ///   Looks up a localized string similar to О себе.
         /// </summary>
         public static string UserComment {
             get {
@@ -192,6 +318,15 @@ namespace Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поле &quot;Имя&quot; является обязательным.
+        /// </summary>
+        public static string UserNameIsRequired {
+            get {
+                return ResourceManager.GetString("UserNameIsRequired", resourceCulture);
             }
         }
     }

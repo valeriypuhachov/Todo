@@ -6,33 +6,42 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap-select.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="wrap">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">//TODO</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Login</a></li>
-                        @*<li><@Html.ActionLink()</li>*@
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <h1 class="navbar-header">@Html.ActionLink("//TODO", "Index", "Home", null, new { @class = "navbar-brand" })</h1>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(Resources.Resource.Login, "Login", "Account", null, new { @class = "underline-anim" })</li>
+                    <li>@Html.ActionLink(Resources.Resource.Register, "Register", "Account", null, new { @class = "underline-anim" })</li>
+                    <li>
+                        @using (Html.BeginForm("ChangeCulture", "Home", new { returnUrl = Request.RawUrl })) {
+                            <div class="menu-dropdown">
+                                @Html.DropDownList("appCulture", new SelectList(new[] {
+                                   new { value = "ru", text = Resources.Resource.Russian},
+                                   new { value = "en", text = Resources.Resource.English }
+                               }, "value", "text", Session["CurrentCulture"]), new {
+                                   onchange = "this.form.submit()",
+                                   role = "button"
+                               })
+                            </div>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
         @RenderBody()
-        <footer>
-            <small>&copy;TODO 2016</small>
-            <p>Developed by Anastasiya Palazyuk and Valeriy Pugachov</p>
-            @Html.ActionLink("About", "About", "Home", new { @class = "btn btn-btn-default" })
-        </footer>
     </div>
+    <footer>
+        <small>&copy;TODO 2016</small>
+        <p>Developed by Anastasiya Palazyuk and Valeriy Pugachov</p>
+        @Html.ActionLink("About", "About", "Home", new { @class = "btn btn-default" })
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Todo.WebUI.Startup))]
+[assembly: OwinStartup(typeof(Todo.WebUI.Startup))]
 namespace Todo.WebUI
 {
     public partial class Startup

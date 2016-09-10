@@ -1,81 +1,8 @@
-﻿
-/** {
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-#wrap {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-header {
-    height: 150px;
-    background: #f4e300;
-    z-index: 20;
-    box-shadow: 0 1px 10px #333;
-}
-
-    header h1 {
-        line-height: 150px;
-        display: inline-block;
-        padding: 0 20px;
-        font-size: 80px;
-        margin: 0 100px;
-        color: black;
-    }
-
-#reg-block {
-    text-align: center;
-    float: right;
-    margin: 35px 20px;
-}
-
-    #reg-block div,
-    #log-in-block div {
-        font-size: 18px;
-        text-shadow: 0 1px 2px #333;
-    }
-
-footer {
-    flex: 0 0 auto;
-    height: 135px;
-    background: #f4e300;
-    clear: both;
-    width: 100%;
-    text-align: center;
-}
-
-.todo-container {
-    height: 100%;
-    flex: 1 0 auto;
-    background-image: url(desktop.png);
-    background-size: cover;
-}
-
-    .todo-container ul {
-        font-size: 35px;
-        color: #f4e300;
-        text-align: center;
-        vertical-align: middle;
-        padding-top: 200px;
-    }
-
-        .todo-container ul li {
-            padding: 20px;
-        }
-
-            .todo-container ul li p {
-                padding-top: 20px;
-            }*/
-* {
+﻿* {
     font-family: cursive;
+}
+
+h1 {
 }
 
 .navbar-default {
@@ -83,7 +10,15 @@ footer {
     min-height: 110px;
     border-radius: 0;
     margin: 0 auto;
+    border: none;
+    border-color: transparent;
 }
+
+.container-fluid > h1 {
+    margin: 0;
+}
+
+
 
 .navbar-brand {
     color: black;
@@ -109,9 +44,55 @@ footer {
     font-size: 30px;
     padding: 30px;
     color: black;
+    transition: color .3s ease-in-out;
 }
 
-    .navbar-nav > li > a::before {
+.menu-dropdown {
+    margin-top: 71px;
+    border: 1px solid #000;
+    width: 150px;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+}
+
+    .menu-dropdown select {
+        border-radius: 10px;
+        background: transparent;
+        height: 34px;
+        padding: 5px;
+        border: 0;
+        font-size: 16px;
+        width: 150px;
+    }
+
+.container {
+    height: 700px;
+    width: 100%;
+    background-image: url(desktop.png);
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    max-width: none;
+}
+
+/*.container > ul {
+        min-width: 500px;
+        margin: 150px;
+        font-size: 25px;
+        color: #f4e300;
+        list-style: inside;
+        line-height: 2.1em;
+    }*/
+
+footer {
+    text-align: center;
+    background: #f4e300;
+}
+
+.underline-anim {
+}
+
+    .underline-anim::before {
         display: block;
         position: absolute;
         content: "";
@@ -123,7 +104,7 @@ footer {
         bottom: 0;
     }
 
-    .navbar-nav > li > a::after {
+    .underline-anim::after {
         display: block;
         position: absolute;
         content: "";
@@ -135,11 +116,44 @@ footer {
         bottom: 0;
     }
 
-    .navbar-nav > li > a:hover::before {
+
+    .underline-anim:hover::before {
         width: 50%;
         left: 0;
     }
 
-    .navbar-nav > li > a:hover::after {
+    .underline-anim:hover::after {
         width: 50%;
     }
+
+.btn-default {
+    border-radius: 0;
+    box-sizing: content-box;
+    border: 1px dashed black;
+    background-color: transparent;
+    transition: all .5s ease-in-out;
+}
+
+    .btn-default:hover {
+        border: 1px dashed black;
+        border-radius: 5px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #e2d306;
+        color: black;
+    }
+
+.item > .item-content {
+    line-height: 690px;
+    font-size: 35px;
+    color: white;
+    margin: auto;
+}
+
+.item-content > blockquote {
+    margin: 0 300px;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+}

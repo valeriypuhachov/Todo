@@ -117,49 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutMyselfIsRequired" xml:space="preserve">
+    <value>Field "About me" is required</value>
+  </data>
   <data name="Author" xml:space="preserve">
     <value>Author is Valeriy Pugachov and Anastasiya Palazyuk</value>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Описание</value>
+    <value>Description</value>
+  </data>
+  <data name="DescriptionIsRequired" xml:space="preserve">
+    <value>Field "Description" is required</value>
+  </data>
+  <data name="EmailIsRequired" xml:space="preserve">
+    <value>Field "Email" is required</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="FieldIsRequired" xml:space="preserve">
+    <value>The field is required</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>Расположение</value>
+    <value>Location</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Пароль</value>
+    <value>Password</value>
+  </data>
+  <data name="PasswordDoNotMatch" xml:space="preserve">
+    <value>Entered passwords do not match</value>
+  </data>
+  <data name="PasswordIsRequired" xml:space="preserve">
+    <value>Field "Password" is required</value>
   </data>
   <data name="Patronomic" xml:space="preserve">
-    <value>Отчество</value>
+    <value>Patronomic</value>
+  </data>
+  <data name="PhoneNumberIsNotValid" xml:space="preserve">
+    <value>The phone number is not valid</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
   <data name="State" xml:space="preserve">
-    <value>Состояние</value>
+    <value>Task state</value>
+  </data>
+  <data name="StringLengthMessage" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
   </data>
   <data name="Surname" xml:space="preserve">
-    <value>Фамилия</value>
+    <value>Surname</value>
+  </data>
+  <data name="SurnameIsRequired" xml:space="preserve">
+    <value>Field "Surname" is required</value>
   </data>
   <data name="Task" xml:space="preserve">
-    <value>Задача</value>
+    <value>Task</value>
   </data>
   <data name="TaskName" xml:space="preserve">
-    <value>Название</value>
+    <value>Task name</value>
+  </data>
+  <data name="TaskNameIsRequired" xml:space="preserve">
+    <value>Field "Name" is required</value>
   </data>
   <data name="TaskTime" xml:space="preserve">
     <value>Task time</value>
   </data>
   <data name="TelephoneNumber" xml:space="preserve">
-    <value>Номер телефона</value>
+    <value>Telephone number</value>
   </data>
   <data name="UserComment" xml:space="preserve">
     <value>About me:</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>Имя</value>
+    <value>Name</value>
+  </data>
+  <data name="UserNameIsRequired" xml:space="preserve">
+    <value>Field "Name" is required</value>
   </data>
 </root>
