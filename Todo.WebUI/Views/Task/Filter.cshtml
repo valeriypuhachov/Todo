@@ -1,0 +1,17 @@
+﻿@model Todo.WebUI.Models.FilterViewModel
+
+@using (Ajax.BeginForm("List", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "task-list", LoadingElementId = "load-section" })) {
+    <div class="form-inline">
+        <div class="row">
+            @Html.ValidationSummary(false)
+        </div>
+        <label class="control-label">Место: </label>
+        @Html.TextBoxFor(m => m.Place, new { @class = "form-control" })
+        <label class="control-label">Время (с):</label>
+        @Html.TextBoxFor(m => m.MinTime, new { @Value = Model.MinTime.ToString("yyyy-MM-dd hh:mm"), @class = "form-control" })
+        <label class="control-label">Время (до): </label>
+        @Html.TextBoxFor(m => m.MaxTime, new { @Value = Model.MaxTime.ToString("yyyy-MM-dd hh:mm"), @class = "form-control" })
+        @Html.EnumDropDownListFor(m => m.TaskState, "All")
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+}

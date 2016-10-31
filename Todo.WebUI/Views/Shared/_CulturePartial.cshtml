@@ -1,0 +1,14 @@
+﻿
+@using (Html.BeginForm("ChangeCulture", "Home", new { returnUrl = Request.RawUrl })) {
+    <div class="menu-dropdown-container">
+        <div class="menu-dropdown">
+            @Html.DropDownList("appCulture", new SelectList(new[] {
+                                   new { value = "ru", text = Resources.Resource.Russian},
+                                   new { value = "en", text = Resources.Resource.English }
+                               }, "value", "text", Session["CurrentCulture"]), new {
+                                   onchange = "this.form.submit()",
+                                   role = "button"
+                               })
+        </div>
+    </div>
+}

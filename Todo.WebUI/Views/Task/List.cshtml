@@ -1,0 +1,31 @@
+﻿@model Todo.WebUI.Models.TaskListViewModel
+
+
+@{
+    int itemInRow = 2;
+    int rowNum = Model.PagingInfo.ItemsPerPage / itemInRow;
+    int count = 0;
+}
+
+<div id="task-list">
+    @for (int i = 0; i < rowNum; i += itemInRow) {
+        <div class="row">
+            @for (int j = i; j < i + 2; j++) {
+                if (count < Model.PagingInfo.TotalItems) {
+                    count++;
+                    <div class="col-md-6">
+                        @Html.Partial("_TaskItem", Model.Tasks.ElementAt(j))
+                    </div>
+                } else {
+                    break;
+                }
+            }
+        </div>
+
+    }
+    @if (Model.PagingInfo.TotalItems < Model.PagingInfo.TotalItems) {
+        <div class="center-block">
+            @Ajax.PageLinks(Model.PagingInfo, "List", "Task", new AjaxOptions { UpdateTargetId = "task-list", InsertionMode = InsertionMode.Replace })
+        </div>
+    }
+</div>

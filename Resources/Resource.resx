@@ -121,7 +121,7 @@
     <value>Поле "О себе" является обязательным</value>
   </data>
   <data name="Author" xml:space="preserve">
-    <value>Автор: Пугачев В.А. и Палазюк А.В.</value>
+    <value>Автор: Пугачев В.А.</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="Login" xml:space="preserve">
     <value>Войти</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Выйти</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
@@ -193,7 +196,7 @@
     <value>Поле "Название" является обязательным</value>
   </data>
   <data name="TaskTime" xml:space="preserve">
-    <value>Время</value>
+    <value>Время выполнения</value>
   </data>
   <data name="TelephoneNumber" xml:space="preserve">
     <value>Номер телефона</value>
@@ -206,5 +209,83 @@
   </data>
   <data name="UserNameIsRequired" xml:space="preserve">
     <value>Поле "Имя" является обязательным</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Редактировать профиль</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Отменена</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Выполнена</value>
+  </data>
+  <data name="NotCompleted" xml:space="preserve">
+    <value>Не выполнена</value>
+  </data>
+  <data name="Waiting" xml:space="preserve">
+    <value>В ожидании</value>
+  </data>
+  <data name="PhoneNumberIsRequired" xml:space="preserve">
+    <value>Поле "Номер телефона" является обязательным</value>
+  </data>
+  <data name="PhonePattern" xml:space="preserve">
+    <value>Введите номер в формате (XXX) XXX-XX-XX</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Создание нового аккаунта</value>
+  </data>
+  <data name="PatronomicIsRequired" xml:space="preserve">
+    <value>Поле "Отчество" является обязательным</value>
+  </data>
+  <data name="ProfileImage" xml:space="preserve">
+    <value>Фото</value>
+  </data>
+  <data name="ProfileImageIsRequired" xml:space="preserve">
+    <value>Поле "Фото" является обязательным</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Забыли пароль?</value>
+  </data>
+  <data name="TaskLocation" xml:space="preserve">
+    <value>Расположение</value>
+  </data>
+  <data name="TaskState" xml:space="preserve">
+    <value>Состояние задачи</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="EditTask" xml:space="preserve">
+    <value>Редактировать задачу</value>
+  </data>
+  <data name="DateOutOfRange" xml:space="preserve">
+    <value>Поле "Время выполнения" принимает значение времени в будущем</value>
+  </data>
+  <data name="CreateTask" xml:space="preserve">
+    <value>Создать задачу</value>
+  </data>
+  <data name="EmailConfirmation" xml:space="preserve">
+    <value>Подтверждение Email</value>
+  </data>
+  <data name="EmailConfirmed" xml:space="preserve">
+    <value>Ваш Email успешно подтвержден.</value>
+  </data>
+  <data name="EnterYourEmail" xml:space="preserve">
+    <value>Введите ваш email.</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Домашняя страница</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Задачи</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>Профиль пользователя</value>
   </data>
 </root>

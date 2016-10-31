@@ -1,0 +1,107 @@
+﻿@model Todo.WebUI.Models.EditViewModel
+
+@{
+    ViewBag.Title = Resource.UserProfile;
+}
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>@Resource.UserProfile</h2>
+        </div>
+        @using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+            <div class="panel-body">
+                @Html.HiddenFor(m => m.Id)
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="hint col-md-8 col-md-offset-3">
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="hint col-md-8 col-md-offset-2">
+                                    @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="hint col-md-8 col-md-offset-2">
+                                    @Html.ValidationMessageFor(m => m.Patronomic, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.LabelFor(m => m.Patronomic, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Patronomic, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="hint col-md-8 col-md-offset-2">
+                                    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 5 })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="hint col-md-8 col-md-offset-2">
+                                    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-md-offset-2">
+                        <div class="form-group">
+                            <div class="col" style="position:relative;">
+                                <label>Image</label>
+                                <a class='btn' href='javascript:;'>
+                                    Choose File...
+                                    <input type="file" name="Image" size="40" style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); opacity:0;                            background-color:transparent;color:transparent;" onchange='$("#upload-file-info").html($(this).val());'>
+                                </a>                <span class='label label-info' id="upload-file-info"></span>
+                            </div>
+                            @if (Model.Photo == null) {
+                                <div class="form-control-static">No Image</div>
+                            } else {
+                                <img src="@Url.Action("GetPhoto",
+                             "Profile", new { Model.Id })" class="img-thumbnail" alt="Profile Image" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <input type="submit" value="Save" class="btn btn-default col" />
+            </div>
+        }
+    </div>
+</div>

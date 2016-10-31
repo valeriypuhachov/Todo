@@ -1,0 +1,37 @@
+﻿@model Todo.Domain.Models.UserTask
+
+@{
+    AjaxOptions options = new AjaxOptions {
+        HttpMethod = "Post"
+    };
+}
+
+<section id="@Model.TaskId" class="task-item">
+    @using (Html.BeginForm("Edit", "Task")) {
+        @Html.HiddenFor(m => m.TaskId)
+        @Html.HiddenFor(m => m.Latitude)
+        @Html.HiddenFor(m => m.Longitude)
+        <h3>@Html.DisplayFor(m => m.TaskName)</h3>
+        <div class="row">
+            <p class="col-md-offset-1 col-md-10 task-description">
+                @Html.DisplayFor(m => m.TaskDescription)
+            </p>
+        </div>
+        <div class="row">
+            <p class="task-time">Время выполнения: <span>@Html.DisplayFor(m => m.Time)</span></p>
+        </div>
+        <div>
+            @Html.EnumDropDownListFor(m => m.TaskState, new {
+           onchange = "this.form.submit()"
+       })
+        </div>
+
+    }
+    <div class="row">
+        <div class="btn-group center-block">
+            @Html.ActionLink(Resources.Resource.Edit, "Edit", new { taskId = Model.TaskId }, new { @class = "btn underline-anim" })
+            @Html.ActionLink("Show", "Show", "Task", new { taskId = Model.TaskId }, new { @class = "btn underline-anim" })
+            @Ajax.ActionLink("Delete", "Delete", "Task", new { taskId = Model.TaskId }, new AjaxOptions { UpdateTargetId = Model.TaskId.ToString(), LoadingElementId = "load-section" }, new { @class = "btn underline-anim" })
+        </div>
+    </div>
+</section>

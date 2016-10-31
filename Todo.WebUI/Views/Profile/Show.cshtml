@@ -1,0 +1,91 @@
+﻿@using Todo.WebUI.Models
+@model Todo.WebUI.Models.DisplayProfileViewModel
+
+@{
+    ViewBag.Title = Resource.UserProfile;
+    AjaxOptions options = new AjaxOptions {
+        UpdateTargetId = "user-information",
+        Url = Url.Action("Edit")
+    };
+}
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>@Resource.UserProfile</h2>
+        </div>
+        <div class="panel-body">
+            <section id="user-information">
+                <div class="row">
+                    <section class="col-md-6">
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.Name, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Surname, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.Surname, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Patronomic, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.Patronomic, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label " })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.Description, new { @class = "form-control", rows = 5 })
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-9 col-md-offset-1">
+                                    @Html.DisplayFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="form-group">
+                            @if (Model.Photo == null) {
+                                <div class="form-control-static">No Image</div>
+                            } else {
+                                <img src="@Url.Action("GetPhoto",
+                             "Profile", new { Model.Id })" class="img-thumbnail profile-photo" alt="Profile Image" />
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    @Html.ActionLink("Edit profile", "Edit", null, new { @class = "btn btn-default" })
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+

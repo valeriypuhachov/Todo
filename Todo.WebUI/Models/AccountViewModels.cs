@@ -44,7 +44,7 @@ namespace Todo.WebUI.Models {
     /// The model is using for user loging in.
     /// </summary>
     public class LoginViewModel {
-        [Required(ErrorMessageResourceName = "Required",
+        [Required(ErrorMessageResourceName = "EmailIsRequired",
             ErrorMessageResourceType = typeof(Resources.Resource))]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -63,7 +63,7 @@ namespace Todo.WebUI.Models {
     /// The model is using for user registration.
     /// </summary>
     public class RegisterViewModel {
-        [Required(ErrorMessageResourceName = "NameIsRequired",
+        [Required(ErrorMessageResourceName = "UserNameIsRequired",
             ErrorMessageResourceType = typeof(Resources.Resource))]
         [Display(Name = "UserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
@@ -73,10 +73,29 @@ namespace Todo.WebUI.Models {
         [Display(Name = "Surname", ResourceType = typeof(Resources.Resource))]
         public string Surname { get; set; }
 
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Resources.Resource))]
+        [Display(Name = "Patronomic", ResourceType = typeof(Resources.Resource))]
+        public string Patronomic { get; set; }
+
+        [Required(ErrorMessageResourceName = "EmailIsRequired", ErrorMessageResourceType = typeof(Resources.Resource))]
         [EmailAddress]
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [RegularExpression(@"\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}",
+            ErrorMessageResourceName = "PhonePattern",
+            ErrorMessageResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceName = "PhoneNumberIsRequired",
+            ErrorMessageResourceType = typeof(Resources.Resource))]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resources.Resource))]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessageResourceName = "AboutMyselfIsRequired",
+            ErrorMessageResourceType = typeof(Resources.Resource))]
+        [Display(Name = "UserComment", ResourceType = typeof(Resources.Resource))]
+        [DataType(DataType.MultilineText)]
+        public string Comment { get; set; }
 
         [Required(ErrorMessageResourceName = "PasswordIsRequired",
             ErrorMessageResourceType = typeof(Resources.Resource))]

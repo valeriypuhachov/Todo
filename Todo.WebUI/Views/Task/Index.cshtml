@@ -1,0 +1,42 @@
+﻿@model bool
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>Index</h2>
+        </div>
+        <div class="panel-body">
+            <div id="load-section" class="row center-block" style="display: none;">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+            </div>
+            @if (!Model) {
+                <div class="text-center text-info">
+                    <p>No tasks</p>
+                </div>
+            } else {
+                @Html.Action("Filter")
+                @Html.Action("List", "Task", new { page = 1 })
+            }
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link href="~/Content/flatpickr.min.css" rel="stylesheet" />
+}
+
+@section scripts{
+    <script src="~/Scripts/flatpickr.js"></script>
+    <script type="text/javascript">
+        document.getElementById('MinTime').setAttribute('data-enable-time', 'true');
+        document.getElementById('MaxTime').setAttribute('data-enable-time', 'true');
+        $('#MinTime').flatpickr();
+        $('#MaxTime').flatpickr();
+    </script>
+}

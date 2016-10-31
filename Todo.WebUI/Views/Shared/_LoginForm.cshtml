@@ -1,0 +1,17 @@
+﻿@using Todo.WebUI.Models
+@model LoginViewModel
+
+@using (Html.BeginForm("LoginForm", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {
+    @class = "navbar-form", id = "login-form"})) {
+    @Html.AntiForgeryToken()
+    @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+    @Html.ActionLink(Resource.ForgotPassword, "ForgotPassword", null, new { @class = "underline-anim", id = "forgot-button" })
+    <div class="checkbox underline-anim">
+        @Html.CheckBoxFor(m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
+    </div>
+    <a href="javascript:document.getElementById('login-form').submit()" class="underline-anim">Log In</a>
+}
