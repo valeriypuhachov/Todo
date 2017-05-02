@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Todo.Domain.Models;
+
+using Todo.Domain.Entities;
 using Todo.Domain.Repository.Abstract;
 
 namespace Todo.Domain.Repository.Concrete {

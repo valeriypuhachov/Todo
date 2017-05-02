@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
-using Todo.Domain.Models;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net.Mail;
 using System.Net;
+
 using Todo.Domain.Context;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Identity {
     public class ApplicationUserManager : UserManager<ApplicationUser> {

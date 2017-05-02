@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Globalization;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -9,11 +6,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Todo.WebUI.Models;
-using Todo.Domain.Models;
-using Todo.WebUI;
 using System.Web.Routing;
 using System.Threading;
 using System.Web.Security;
+
+using Todo.Domain.Entities;
 using Todo.Domain.Identity;
 
 namespace Todo.WebUI.Controllers {
@@ -69,8 +66,8 @@ namespace Todo.WebUI.Controllers {
 
             ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
             if (user != null) {
-                if (user.EmailConfirmed == true) {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                if (user.EmailConfirmed) {
+                    await SignInManager.SignInAsync(user, false, false);
                     return RedirectToLocal(returnUrl);
                 } else {
                     ModelState.AddModelError("", "Не подтвержден email.");
@@ -137,23 +134,24 @@ namespace Todo.WebUI.Controllers {
                 return View(model);
             }
             if (ModelState.IsValid) {
-                var user = new ApplicationUser {
+                ApplicationUser user = new ApplicationUser
+                {
                     UserName = model.Email,
                     FirstName = model.UserName,
                     Surname = model.Surname,
                     Email = model.Email,
                     Comment = model.Comment,
                     Patronomic = model.Patronomic,
-                    PhoneNumber = model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber,
+                    Photo = new byte[image.ContentLength]
                 };
 
-                user.Photo = new byte[image.ContentLength];
                 await image.InputStream.ReadAsync(user.Photo, 0, image.ContentLength);
                 user.ImageMimeType = image.ContentType;
 
-                var result = await UserManager.CreateAsync(user, model.Password);
+                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded) {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await SignInManager.SignInAsync(user, false, false);
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
@@ -251,11 +249,7 @@ namespace Todo.WebUI.Controllers {
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
-        private IAuthenticationManager AuthenticationManager {
-            get {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         private void AddErrors(IdentityResult result) {
             foreach (var error in result.Errors) {

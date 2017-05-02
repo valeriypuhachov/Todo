@@ -1,0 +1,37 @@
+﻿@using Todo.WebUI.Models
+@model IEnumerable<UserFriendViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>Index</h2>
+        </div>
+        <div class="panel-body">
+            <div id="load-section" class="row center-block" style="display: none;">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+            </div>
+            @if (!Model.Any())
+            {
+                <div class="text-center text-info">
+                    <p>No tasks</p>
+                </div>
+            }
+            else
+            {
+                foreach (UserFriendViewModel userFriend in Model)
+                {
+                    @Html.RenderPartial("_DisplayFriendPartialView", userFriend)
+                }
+            }
+        </div>
+    </div>
+</div>

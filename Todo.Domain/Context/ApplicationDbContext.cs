@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Todo.Domain.Models;
 using System.Data.Entity;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Context {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
@@ -19,6 +15,8 @@ namespace Todo.Domain.Context {
         public static ApplicationDbContext Create() => new ApplicationDbContext();
 
         public DbSet<UserTask> UserTasks { get; set; }
+
+        public DbSet<UserFriend> UserFriends { get; set; }
     }
 
     internal class IdentityDbInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext> {

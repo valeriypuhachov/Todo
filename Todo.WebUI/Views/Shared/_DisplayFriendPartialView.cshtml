@@ -1,0 +1,21 @@
+﻿@using Todo.WebUI.Models
+@model UserFriendViewModel
+
+<div class="row">
+    @using (Html.BeginForm("LoginForm", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new
+    {
+        @class = "navbar-form",
+        id = "login-form"
+    }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.LabelFor(x => $"{x.Name} {x.Surname}")
+        <div class="col-md-5 col-md-offset-1">
+            <div class="form-group">
+                <img src="@Url.Action("GetPhoto",
+                        "Profile", new { Model.FriendId })" class="img-thumbnail profile-photo" alt="Profile Image" />
+            </div>
+        </div>
+    }
+</div>

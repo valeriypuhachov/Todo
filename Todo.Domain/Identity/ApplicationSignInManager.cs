@@ -1,18 +1,9 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
-using System.Text;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
-
-using Todo.Domain.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Todo.Domain.Repository.Abstract;
-using Todo.Domain.Repository.Concrete;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Identity {
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string> {

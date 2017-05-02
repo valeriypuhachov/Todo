@@ -1,17 +1,19 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Todo.Domain.Models
+namespace Todo.Domain.Entities
 {
     public class ApplicationUser : IdentityUser
     {
+        //public ApplicationUser()
+        //{
+        //    Tasks = new List<UserTask>();
+        //}
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager) {
             return await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
         }
@@ -29,7 +31,6 @@ namespace Todo.Domain.Models
                 base.UserName = value;
             }
         }
-
 
         [Phone]
         public override string PhoneNumber {
@@ -67,8 +68,6 @@ namespace Todo.Domain.Models
 
         public virtual List<UserTask> Tasks { get; set; }
 
-        public ApplicationUser() {
-            this.Tasks = new List<UserTask>();
-        }
+        public virtual List<UserFriend> Friends { get; set; }
     }
 }

@@ -1,17 +1,14 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Todo.Domain.Models;
 using Todo.WebUI.Models;
 using Microsoft.AspNet.Identity;
 using Todo.Domain.Identity;
 using System.Web.Routing;
 using System.Threading;
 using System.Globalization;
+using Todo.Domain.Entities;
 
 namespace Todo.WebUI.Controllers {
     [Authorize]

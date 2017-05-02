@@ -114,14 +114,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\TaskParticipant.cs" />
+    <Compile Include="Entities\UserFriend.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Repository\Abstract\IRepository.cs" />
     <Compile Include="Repository\Abstract\IRepositoryFactory.cs" />
+    <Compile Include="Repository\Abstract\IUserFriendsRepository.cs" />
     <Compile Include="Repository\Abstract\IUserRepository.cs" />
     <Compile Include="Repository\Abstract\IUserTaskRepository.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Repository\Concrete\AppTaskRepository.cs" />
+    <Compile Include="Repository\Concrete\AppUserFriendsRepository.cs" />
     <Compile Include="Repository\Concrete\AppUserRepository.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\State.cs" />
@@ -132,9 +136,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Resources\Resources.csproj">

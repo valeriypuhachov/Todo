@@ -2,12 +2,10 @@
 using Ninject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
 using Todo.Domain.Context;
-using Todo.Domain.Identity;
-using Todo.Domain.Models;
+using Todo.Domain.Entities;
 using Todo.Domain.Repository.Abstract;
 using Todo.Domain.Repository.Concrete;
 

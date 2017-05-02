@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity.Spatial;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Todo.Domain.Models;
 
-namespace Todo.Domain.Models {
+namespace Todo.Domain.Entities {
     public class UserTask {
         [Key]
         public Guid TaskId { get; set; }
@@ -35,5 +30,7 @@ namespace Todo.Domain.Models {
         public string Place { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        public virtual IEnumerable<TaskParticipant> TaskParticipants { get; set; }
     }
 }

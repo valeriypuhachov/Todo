@@ -1,73 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Todo.Domain.Context;
-using Todo.Domain.Models;
+using Todo.Domain.Entities;
 using Todo.Domain.Repository.Abstract;
 
-namespace Todo.Domain.Repository.Concrete {
-    public class AppTaskRepository : IUserTaskRepository {
+namespace Todo.Domain.Repository.Concrete
+{
+    public class AppTaskRepository : IUserTaskRepository
+    {
         private readonly ApplicationDbContext _context;
-        private bool disposed = false;
+        private bool _disposed;
 
-        public AppTaskRepository(ApplicationDbContext context) {
+        public AppTaskRepository(ApplicationDbContext context)
+        {
             _context = context;
         }
 
-        public void Add(UserTask item) {
+        public void Add(UserTask item)
+        {
             Edit(item);
         }
 
-        public UserTask Delete(string id) {
+        public UserTask Delete(string id)
+        {
             UserTask deletedTask = _context.UserTasks
                 .FirstOrDefault(x => x.TaskId.ToString().Equals(id));
-            if (deletedTask != null) {
+            if (deletedTask != null)
+            {
                 _context.UserTasks.Remove(deletedTask);
                 _context.SaveChanges();
             }
             return deletedTask;
         }
 
-        public void Edit(UserTask item) {
-            if (item.TaskId.Equals(Guid.Empty)) {
+        public void Edit(UserTask item)
+        {
+            if (item.TaskId.Equals(Guid.Empty))
+            {
                 item.TaskId = Guid.NewGuid();
                 _context.UserTasks.Add(item);
-
-            } else {
+            }
+            else
+            {
                 UserTask dbEntry = _context.UserTasks.FirstOrDefault(x => x.TaskId.ToString().Equals(item.TaskId));
-                if (dbEntry != null) {
+                if (dbEntry != null)
+                {
                     dbEntry.TaskName = item.TaskName;
                     dbEntry.TaskDescription = item.TaskDescription;
                     dbEntry.TaskState = item.TaskState;
                     dbEntry.Time = item.Time;
                     dbEntry.Latitude = item.Latitude;
                     dbEntry.Longitude = item.Longitude;
-
                 }
             }
             _context.SaveChanges();
         }
 
-        public UserTask FindById(string id) {
+        public UserTask FindById(string id)
+        {
             return _context.UserTasks.FirstOrDefault(x => x.TaskId.ToString().Equals(id));
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             Dispose(true);
         }
 
-        public virtual void Dispose(bool disposing) {
-            if (!this.disposed) {
-                if (disposing) {
+        public virtual void Dispose(bool disposing)
+        {
+            if (!this._disposed)
+            {
+                if (disposing)
+                {
                     _context.Dispose();
                 }
             }
-            this.disposed = true;
+            this._disposed = true;
         }
 
-        public IEnumerable<UserTask> UserTasks(string userId) {
+        public IEnumerable<UserTask> UserTasks(string userId)
+        {
             return _context.UserTasks.Where(x => x.UserId == userId).Select(x => x);
         }
 
