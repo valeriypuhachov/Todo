@@ -1,11 +1,12 @@
 ﻿
 <div id="main-menu">
-    <menu @*class="hidden-xs hidden-sm"*@>
+    <menu>
         <li>@Html.ActionLink(Resource.HomePage, "Index", "Home")</li>
         <li>@Html.ActionLink(Resource.UserProfile, "Show", "Profile")</li>
         <li>@Html.ActionLink(Resource.EditProfile, "Edit", "Profile")</li>
         <li>@Html.ActionLink(Resource.Tasks, "Index", "Task")</li>
         <li>@Html.ActionLink(Resource.CreateTask, "Create", "Task")</li>
-        <li>>@Html.ActionLink("Друзья", "Index", "Friends")</li>
+        <li>@Html.ActionLink("Друзья", "Index", "Friends")</li>
+        <li>@Html.ActionLink("Пользователи", "Users", "Friends")</li>
     </menu>
 </div>

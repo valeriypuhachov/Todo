@@ -1,21 +1,23 @@
 ﻿@using Todo.WebUI.Models
-@model UserFriendViewModel
+@model UserViewModel
 
 <div class="row">
-    @using (Html.BeginForm("LoginForm", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new
+    @using (Html.BeginForm("RemoveFriend", "Friends", new { Model.FriendId }, FormMethod.Post, new
     {
         @class = "navbar-form",
         id = "login-form"
     }))
     {
         @Html.AntiForgeryToken()
-
-        @Html.LabelFor(x => $"{x.Name} {x.Surname}")
-        <div class="col-md-5 col-md-offset-1">
-            <div class="form-group">
-                <img src="@Url.Action("GetPhoto",
-                        "Profile", new { Model.FriendId })" class="img-thumbnail profile-photo" alt="Profile Image" />
-            </div>
+        <div class="col-md-4 col-md-offset-1">
+            @Html.Label("FullName", $"{Model.Name} {Model.Surname}")
         </div>
+        <div class="col-md-5 col-md-offset-1">
+            <img src="@Url.Action("GetPhoto", "Profile", new {id = Model.FriendId})" height="10" class="img-thumbnail" alt="Profile Image" />
+        </div>
+        <div class="col-md-1">
+            <input type="submit" class="btn btn-default" value="Remove" />
+        </div>
+        <hr/>
     }
 </div>

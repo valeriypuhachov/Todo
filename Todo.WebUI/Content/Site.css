@@ -847,3 +847,7 @@ textarea {
     min-width: 1000px;
     background: #f3ab00;
 }
+
+.user-profile-small-photo {
+    height: 60px;
+}

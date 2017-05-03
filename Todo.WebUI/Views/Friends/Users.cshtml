@@ -1,0 +1,30 @@
+﻿@using Todo.WebUI.Models
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>Users</h2>
+        </div>
+        <div class="panel-body">
+            @if (!Model.Any())
+            {
+                <div class="text-center text-info">
+                    <p>No user</p>
+                </div>
+            }
+            else
+            {
+                foreach (UserViewModel userViewModel in Model)
+                {
+                    @Html.Partial("_UserPartial", userViewModel)
+                }
+            }
+        </div>
+    </div>
+</div>

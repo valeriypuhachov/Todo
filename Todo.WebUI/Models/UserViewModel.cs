@@ -2,7 +2,7 @@
 
 namespace Todo.WebUI.Models
 {
-    public class UserFriendViewModel
+    public class UserViewModel
     {
         [Display(Name = "UserName", ResourceType = typeof(Resources.Resource))]
         public string Name { get; set; }

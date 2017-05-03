@@ -1,17 +1,15 @@
 ﻿@using Todo.WebUI.Models
-@model IEnumerable<UserFriendViewModel>
+@model IEnumerable<UserViewModel>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
 <div class="container">
     <div class="panel">
         <div class="panel-heading">
-            <h2>Index</h2>
+            <h2>Friends</h2>
         </div>
         <div class="panel-body">
             <div id="load-section" class="row center-block" style="display: none;">
@@ -22,14 +20,16 @@
             @if (!Model.Any())
             {
                 <div class="text-center text-info">
-                    <p>No tasks</p>
+                    <p>You have no friend</p>
                 </div>
             }
             else
             {
-                foreach (UserFriendViewModel userFriend in Model)
+                foreach (UserViewModel userFriend in Model)
                 {
-                    @Html.RenderPartial("_DisplayFriendPartialView", userFriend)
+                    <div class="col-md-12">
+                        @Html.Partial("_DisplayFriendPartialView", userFriend)
+                    </div>
                 }
             }
         </div>
