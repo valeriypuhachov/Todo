@@ -8,13 +8,13 @@ namespace Todo.Domain.Entities
     public class TaskParticipant
     {
         [Key]
-        public Guid ParticipanId { get; set; }
+        public Guid TaskParticipantId { get; set; }
 
         [ForeignKey(nameof(UserTask))]
         public Guid TaskId { get; set; }
 
         [ForeignKey(nameof(User))]
-        public Guid ParticipantId { get; set; }
+        public string ParticipantId { get; set; }
 
         public ApplicationUser User { get; set; }
 

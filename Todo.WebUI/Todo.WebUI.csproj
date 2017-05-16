@@ -229,6 +229,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\ValidationAttributes.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddTaskParticipantViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\ProfileViewModels.cs" />
     <Compile Include="Models\TaskViewModel.cs" />
@@ -342,6 +343,7 @@
     <Content Include="Views\Shared\_DisplayFriendPartialView.cshtml" />
     <Content Include="Views\Friends\Users.cshtml" />
     <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Shared\_AddTaskParticipant.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

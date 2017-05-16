@@ -1,5 +1,6 @@
-﻿@*@model Todo.WebUI.Models.EditTaskViewModel*@
-@model Todo.Domain.Entities.UserTask
+﻿@using Todo.Domain.Entities
+@using Todo.WebUI.Models
+@model Todo.WebUI.Models.EditTaskViewModel
 
 @{
     ViewBag.Title = Resource.Edit;
@@ -10,7 +11,7 @@
         <div class="panel-heading">
             <h2>@Resource.Edit</h2>
         </div>
-        @using (Html.BeginForm("Edit", "Task")) {
+        @using (Html.BeginForm("Edit", "Task", FormMethod.Post)) {
             <div class="panel-body">
                 @Html.ValidationSummary()
                 @Html.HiddenFor(m => m.UserId)
@@ -66,6 +67,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-8">
+                    @{
+                        foreach (AddTaskParticipantViewModel userFriend in Model.TaskParticipants)
+                        {
+                            <div class="col-md-12">
+                                @Html.Partial("_AddTaskParticipant", userFriend)
+                            </div>
+                        }
+                    }
                 </div>
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

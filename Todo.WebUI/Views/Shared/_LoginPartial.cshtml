@@ -10,7 +10,7 @@
 } else {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink(Resources.Resource.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "underline-anim" })</li>
-        <li>@Html.Partial("_LoginForm")</li>
+        <li>@Html.Partial("_LoginForm", new ViewDataDictionary())</li>
     </ul>
 }
 @Html.Partial("_CulturePartial")

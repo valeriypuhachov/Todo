@@ -22,6 +22,8 @@ namespace Todo.WebUI.Models {
 
     public class EditTaskViewModel {
 
+        public string UserId { get; set; }
+
         public Guid TaskId { get; set; }
         [Required(ErrorMessageResourceName = "DescriptionIsRequired",
             ErrorMessageResourceType = typeof(Resources.Resource))]
@@ -48,5 +50,7 @@ namespace Todo.WebUI.Models {
         public double? Latitude { get; set; }
 
         public string Place { get; set; }
+
+        public List<AddTaskParticipantViewModel> TaskParticipants { get; set; }
     }
 }

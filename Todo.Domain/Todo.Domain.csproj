@@ -120,6 +120,7 @@
     <Compile Include="Identity\ApplicationUserManager.cs" />
     <Compile Include="Repository\Abstract\IRepository.cs" />
     <Compile Include="Repository\Abstract\IRepositoryFactory.cs" />
+    <Compile Include="Repository\Abstract\ITaskParticipantRepository.cs" />
     <Compile Include="Repository\Abstract\IUserFriendsRepository.cs" />
     <Compile Include="Repository\Abstract\IUserRepository.cs" />
     <Compile Include="Repository\Abstract\IUserTaskRepository.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Entities\UserTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Concrete\EFRepositoryFactory.cs" />
+    <Compile Include="Repository\Concrete\TaskParticipantRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

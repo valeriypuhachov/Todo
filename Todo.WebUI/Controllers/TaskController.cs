@@ -49,25 +49,80 @@ namespace Todo.WebUI.Controllers
 
         public async Task<ActionResult> Create()
         {
-            return View("Edit", new UserTask()
+            List<UserFriend> friends = _factory.UserFriendsRepository.GetUsersFriends(User.Identity.GetUserId()).ToList();
+
+            EditTaskViewModel task = new EditTaskViewModel
             {
                 UserId = User.Identity.GetUserId(),
-                User = await UserManager.FindByIdAsync(User.Identity.GetUserId())
-            });
+                TaskParticipants = friends.Select(x => new AddTaskParticipantViewModel()
+                {
+                    FullName = _factory.UserRepository.FindById(x.FriendId.ToString()).UserName,
+                    UserId = x.FriendId.ToString(),
+                    IsChecked = false
+                }).ToList()
+            };
+
+            return View("Edit", task);
         }
 
         public ActionResult Edit(string taskId)
         {
+            List<UserFriend> friends = _factory.UserFriendsRepository.GetUsersFriends(User.Identity.GetUserId()).ToList();
+
             UserTask task = _factory.UserTaskRepository.FindById(taskId);
-            return View(task);
+            EditTaskViewModel editTaskViewModel = new EditTaskViewModel();
+            editTaskViewModel.Latitude = task.Latitude;
+            editTaskViewModel.Longitude = task.Longitude;
+            editTaskViewModel.Place = task.Place;
+            editTaskViewModel.TaskDescription = task.TaskDescription;
+            editTaskViewModel.TaskName = task.TaskName;
+            editTaskViewModel.TaskParticipants = friends.Select(x => new AddTaskParticipantViewModel()
+            {
+                FullName = _factory.UserRepository.FindById(x.FriendId.ToString()).UserName,
+                UserId = x.FriendId.ToString(),
+                IsChecked = false
+            }).ToList();
+            foreach (AddTaskParticipantViewModel addTaskParticipantViewModel in editTaskViewModel.TaskParticipants)
+            {
+                foreach (TaskParticipant participant in task.TaskParticipants)
+                {
+                    if (participant.ParticipantId.ToString() == addTaskParticipantViewModel.UserId)
+                        addTaskParticipantViewModel.IsChecked = true;
+                }
+            }
+            editTaskViewModel.TaskState = task.TaskState;
+            editTaskViewModel.Time = task.Time;
+            editTaskViewModel.TaskId = task.TaskId;
+            editTaskViewModel.UserId = task.UserId;
+
+            return View(editTaskViewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(UserTask task)
+        public async Task<ActionResult> Edit(EditTaskViewModel editedTask)
         {
+            UserTask task = new UserTask();
+            task.TaskParticipants = _factory.UserFriendsRepository.GetUsersFriends(User.Identity.GetUserId()).Select(x => new TaskParticipant
+            {
+                UserTask = task,
+                ParticipantId = x.FriendId.ToString()
+            }).ToList();
+            task.Latitude = editedTask.Latitude;
+            task.Longitude = editedTask.Longitude;
+            task.Place = editedTask.Place;
+            task.TaskDescription = editedTask.TaskDescription;
+            task.TaskName = editedTask.TaskName;
+            task.TaskState = editedTask.TaskState;
+            task.Time = editedTask.Time;
+            task.UserId = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
                 _factory.UserTaskRepository.Add(task);
+                foreach (TaskParticipant participant in task.TaskParticipants)
+                {
+                    _factory.TaskParticipantrepository.Add(participant);
+                }
                 return RedirectToAction("Index", "Home");
             }
             return View(task);

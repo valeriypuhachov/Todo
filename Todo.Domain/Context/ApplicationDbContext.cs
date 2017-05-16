@@ -9,7 +9,7 @@ namespace Todo.Domain.Context {
         }
 
         static ApplicationDbContext() {
-            Database.SetInitializer<ApplicationDbContext>(new IdentityDbInit());
+            Database.SetInitializer(new IdentityDbInit());
         }
 
         public static ApplicationDbContext Create() => new ApplicationDbContext();
@@ -17,6 +17,8 @@ namespace Todo.Domain.Context {
         public DbSet<UserTask> UserTasks { get; set; }
 
         public DbSet<UserFriend> UserFriends { get; set; }
+
+        public DbSet<TaskParticipant> TaskParticipants { get; set; }
     }
 
     internal class IdentityDbInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext> {

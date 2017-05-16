@@ -14,5 +14,6 @@ namespace Todo.Domain.Repository.Concrete {
 
         public IUserTaskRepository UserTaskRepository => new AppTaskRepository(_dbContext);
         public IUserFriendsRepository UserFriendsRepository => new AppUserFriendsRepository(_dbContext);
+        public ITaskParticipantRepository TaskParticipantrepository => new TaskParticipantRepository(_dbContext);
     }
 }
